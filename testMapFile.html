@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+    <style>
+        #map {position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
+    </style>
+</head>
+<body>
+<div id = "map"></div>
+<script>
+    var map = L.map('map').setView([40.35, -74.7], 12);
+
+    
+    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=Ar1J9OQpFMuewVBXEXGX', {
+        attribution:
+            '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        maxZoom: 18
+    }).addTo(map);
+
+
+    //var marker = L.marker([50.84673, 4.35247]).addTo(map);
+    //var popup = marker.bindPopup('<b>Hello world!</b><br />I am a popup.');
+    //popup.openPopup();
+
+    //var greenIcon = L.icon({
+     //   iconUrl: 'restaurant.png',
+        //shadowUrl: 'leaf-shadow.png',
+
+    //    iconSize:     [38, 95], // size of the icon
+        //shadowSize:   [50, 64], // size of the shadow
+     //   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        //shadowAnchor: [4, 62],  // the same for the shadow
+    //    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+   //});
+
+    //marker = L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
+
+    //popup = marker.bindPopup('<b>Hello!</b><br />I am a popup.');
+    //popup.openPopup();
+
+
+    var IconPin = L.Icon.extend({
+    options: {
+        //shadowUrl: 'leaf-shadow.png',
+        iconSize:     [38, 95],
+        //shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        //shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+});
+
+    var grocery = new IconPin({iconUrl: 'grocery.png'}),
+    coffee = new IconPin({iconUrl: 'coffee.png'}),
+    restaurant = new IconPin({iconUrl: 'restaurant.png'});
+
+    L.icon = function (options) {
+    return new L.Icon(options);
+};
+
+
+   // var groceryMarker(num lat, num long, String message){
+   //     L.marker([lat,long], {icon: grocery}).addTo(map).bindPopup(message);
+  //  }
+
+
+	//grocery Stores
+L.marker([40.3324832,-74.7281016], {icon: grocery}).addTo(map).bindPopup("This is Terhune Orchards");
+L.marker([40.3544729,-74.64487686], {icon: grocery}).addTo(map).bindPopup("This is Whole Earth");
+L.marker([40.3523361,-74.6511909], {icon: grocery}).addTo(map).bindPopup(" This is Nassau Street Seafood & Produce Company");
+L.marker([40.3906275,-74.7564519], {icon: grocery}).addTo(map).bindPopup("Brick Farm Market");
+L.marker([40.364945,-74.6531621], {icon: grocery}).addTo(map).bindPopup("This is McCaffrey’s");
+
+	//Coffee Shops
+L.marker([40.364945,-74.6531621], {icon: coffee}).addTo(map).bindPopup("This is Lillipies");
+L.marker([40.3893317,-74.7612089], {icon: coffee}).addTo(map).bindPopup("This is Boro Bean");
+L.marker([40.3489125,-74.6627855], {icon: coffee}).addTo(map).bindPopup("This is Sakid Coffee Roasters");
+L.marker([40.371768951416016,-74.94686126708984], {icon: coffee}).addTo(map).bindPopup("This is Rojo’s Roastery (Lambertville)");
+L.marker([40.3496246,-74.6613327], {icon: coffee}).addTo(map).bindPopup("This is Rojo’s Roastery (Princeton)");
+L.marker([40.3502123,-74.6618651], {icon: coffee}).addTo(map).bindPopup("This is Olsson’s Fine Food");
+
+	//Restaurants
+L.marker([40.301498,-74.870495], {icon: restaurant}).addTo(map).bindPopup("This is It's Nutts");
+L.marker([40.3489125,-74.6627855], {icon: restaurant}).addTo(map).bindPopup("This is Small Bites by Local Greek");
+L.marker([40.3518671,-74.6668607], {icon: restaurant}).addTo(map).bindPopup("This is The Peacock Inn");
+L.marker([40.365318298339844,-74.94515991210938], {icon: restIcon}).addTo(map).bindPopup("This is More than Q");
+L.marker([40.3539639,-74.6619726], {icon: restaurant}).addTo(map).bindPopup("This is Witherspoon Grill");
+L.marker([40.3539945,-74.6618621], {icon: restaurant}).addTo(map).bindPopup("This is Olives ");
+
+
+
+
+
+
+</script>
+</body>
